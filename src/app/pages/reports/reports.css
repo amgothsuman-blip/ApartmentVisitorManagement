@@ -1,0 +1,104 @@
+:host {
+  display: block;
+}
+
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.page-heading h1 {
+  font-size: 29px;
+  margin: 8px 0;
+}
+
+.page-heading p,
+.description {
+  color: #8490a3;
+  font-size: 13px;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.report-card,
+.section-card {
+  background: white;
+  border: 1px solid #e5eaf2;
+  border-radius: 14px;
+  padding: 23px;
+}
+
+.report-card span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.report-card h2 {
+  font-size: 32px;
+  margin: 16px 0 8px;
+}
+
+.report-card p {
+  color: #8490a3;
+  font-size: 12px;
+  margin: 0;
+}
+
+.section-card {
+  margin-top: 25px;
+}
+
+.section-card h2 {
+  font-size: 18px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 8px 8px 0 0;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-light {
+  background: #eaf1ff;
+  color: #2563eb;
+}
+
+@media (max-width: 900px) {
+  .report-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+}

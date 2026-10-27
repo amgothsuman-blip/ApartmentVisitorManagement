@@ -1,0 +1,140 @@
+:host {
+  display: block;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-hero {
+  text-align: center;
+  background: linear-gradient(135deg, #102a56, #2563eb);
+  color: white;
+  padding: 55px 30px;
+  border-radius: 18px;
+}
+
+.about-logo {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border-radius: 16px;
+  background: white;
+  color: #2563eb;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.eyebrow {
+  color: #bfdbfe;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.about-hero h1 {
+  max-width: 750px;
+  margin: 15px auto;
+  font-size: clamp(26px, 4vw, 36px);
+}
+
+.about-hero p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #dbeafe;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.about-card,
+.technology-card {
+  background: white;
+  border: 1px solid #e5eaf2;
+  border-radius: 13px;
+  padding: 25px;
+}
+
+.about-icon {
+  font-size: 28px;
+}
+
+.about-card h2,
+.technology-card h2 {
+  font-size: 18px;
+  margin: 15px 0 10px;
+}
+
+.about-card p,
+.technology-card p {
+  color: #8490a3;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.technology-card {
+  margin-top: 25px;
+}
+
+.technology-card h2 {
+  margin-top: 0;
+}
+
+.technology-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.technology-list span {
+  padding: 9px 13px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 17px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.btn-primary {
+  color: white;
+  background: #2563eb;
+}
+
+.btn-light {
+  color: #2563eb;
+  background: #eaf1ff;
+}
+
+@media (max-width: 750px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero {
+    padding: 35px 20px;
+  }
+}

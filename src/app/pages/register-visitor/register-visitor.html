@@ -1,0 +1,126 @@
+<section class="page">
+
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">VISITOR MANAGEMENT</span>
+      <h1>Register Visitor</h1>
+      <p>Enter the details of the person visiting your apartment.</p>
+    </div>
+
+    <a routerLink="/visitor-list" class="btn btn-light">
+      View Visitors
+    </a>
+  </div>
+
+  <div class="form-card">
+
+    <div class="form-header">
+      <div class="form-header-icon">＋</div>
+      <div>
+        <h2>Visitor Information</h2>
+        <p>Fields marked with * are required.</p>
+      </div>
+    </div>
+
+    @if (message) {
+      <div class="alert success">{{ message }}</div>
+    }
+
+    @if (error) {
+      <div class="alert error">{{ error }}</div>
+    }
+
+    <form (ngSubmit)="submitForm()" #visitorForm="ngForm">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="name">Visitor Name *</label>
+          <input
+            id="name"
+            name="name"
+            [(ngModel)]="visitor.name"
+            required
+            maxlength="100"
+            placeholder="Enter full name">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input
+            id="phone"
+            name="phone"
+            [(ngModel)]="visitor.phone"
+            required
+            maxlength="10"
+            inputmode="numeric"
+            pattern="[0-9]{10}"
+            placeholder="10-digit mobile number">
+        </div>
+
+        <div class="form-group">
+          <label for="apartment">Apartment Number *</label>
+          <input
+            id="apartment"
+            name="apartment"
+            [(ngModel)]="visitor.apartment"
+            required
+            maxlength="30"
+            placeholder="Example: Block A - 204">
+        </div>
+
+        <div class="form-group">
+          <label for="date">Visit Date *</label>
+          <input
+            id="date"
+            type="date"
+            name="date"
+            [(ngModel)]="visitor.date"
+            required>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="purpose">Purpose of Visit *</label>
+          <select
+            id="purpose"
+            name="purpose"
+            [(ngModel)]="visitor.purpose"
+            required>
+            <option value="">Select purpose</option>
+            <option value="Family Visit">Family Visit</option>
+            <option value="Friend Visit">Friend Visit</option>
+            <option value="Delivery">Delivery</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Business">Business</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-note">
+        <strong>Approval process</strong>
+        <p>New visitor registrations will have Pending status until approved.</p>
+      </div>
+
+      <div class="form-actions">
+        <button
+          type="button"
+          class="btn btn-light"
+          routerLink="/">
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="visitorForm.invalid">
+          Register Visitor
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+</section>

@@ -1,0 +1,101 @@
+<section class="home-page">
+
+  <div class="welcome-banner">
+    <div class="welcome-content">
+      <span class="eyebrow">APARTMENT SECURITY PORTAL</span>
+
+      <h1>Welcome to ApartmentCare</h1>
+
+      <p>
+        Manage visitors, monitor entry and exit, and keep your
+        apartment community organized from one place.
+      </p>
+
+      <a routerLink="/register-visitor" class="primary-button">
+        + Register New Visitor
+      </a>
+    </div>
+
+    <div class="welcome-art" aria-hidden="true">
+      <div class="building">
+        <div class="building-roof"></div>
+        <div class="building-body">
+          <div class="windows">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="building-door"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading">
+    <div>
+      <h2>Today's Overview</h2>
+      <p>Visitor activity at a glance.</p>
+    </div>
+
+    <a routerLink="/dashboard" class="text-link">
+      View Dashboard →
+    </a>
+  </div>
+
+  <div class="stats-grid">
+
+    @for (stat of stats; track stat.label) {
+      <article class="stat-card">
+
+        <div class="stat-icon" [class]="stat.color">
+          {{ stat.icon }}
+        </div>
+
+        <div class="stat-info">
+          <p>{{ stat.label }}</p>
+          <h3>{{ stat.value }}</h3>
+          <span>{{ stat.description }}</span>
+        </div>
+
+      </article>
+    }
+
+  </div>
+
+  <div class="section-heading feature-heading">
+    <div>
+      <h2>Quick Actions</h2>
+      <p>Choose a service to continue.</p>
+    </div>
+  </div>
+
+  <div class="features-grid">
+
+    @for (feature of features; track feature.title) {
+      <a
+        class="feature-card"
+        [routerLink]="feature.link"
+      >
+
+        <div class="feature-icon" [class]="feature.color">
+          {{ feature.icon }}
+        </div>
+
+        <h3>{{ feature.title }}</h3>
+
+        <p>{{ feature.description }}</p>
+
+        <span class="feature-link">Open page →</span>
+
+      </a>
+    }
+
+  </div>
+
+  <footer class="home-footer">
+    ApartmentCare Visitor Management System
+    <span>·</span>
+    EWP Project
+  </footer>
+
+</section>

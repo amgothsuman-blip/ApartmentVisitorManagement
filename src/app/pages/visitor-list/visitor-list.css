@@ -1,0 +1,187 @@
+:host {
+  display: block;
+}
+
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 27px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.page-heading h1 {
+  font-size: 29px;
+  margin: 8px 0;
+}
+
+.page-heading p {
+  font-size: 13px;
+  color: #8490a3;
+  margin: 0;
+}
+
+.section-card {
+  background: white;
+  border: 1px solid #e5eaf2;
+  border-radius: 14px;
+  padding: 23px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.toolbar input,
+.toolbar select {
+  min-height: 43px;
+  padding: 10px 12px;
+  border: 1px solid #dbe2ec;
+  border-radius: 8px;
+  font-size: 13px;
+  background: white;
+}
+
+.toolbar input {
+  flex: 1;
+  min-width: 0;
+}
+
+.toolbar select {
+  width: 160px;
+}
+
+.results-count {
+  color: #8490a3;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #edf0f5;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+th {
+  color: #8490a3;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.badge.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.table-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.small-button {
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 9px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.approve {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.reject {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 45px 15px;
+}
+
+.empty-state p {
+  color: #8490a3;
+  font-size: 13px;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 15px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-light {
+  background: #eaf1ff;
+  color: #2563eb;
+}
+
+.alert {
+  background: #dcfce7;
+  color: #166534;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    flex-direction: column;
+  }
+
+  .toolbar select {
+    width: 100%;
+  }
+
+  .section-card {
+    padding: 15px;
+  }
+}

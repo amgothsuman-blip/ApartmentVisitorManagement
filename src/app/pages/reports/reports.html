@@ -1,0 +1,76 @@
+<section class="page">
+
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">ANALYTICS</span>
+      <h1>Visitor Reports</h1>
+      <p>Review visitor activity and export records.</p>
+    </div>
+
+    <button class="btn btn-primary" (click)="exportCsv()">
+      Export CSV
+    </button>
+  </div>
+
+  <div class="report-grid">
+
+    <article class="report-card">
+      <span>Total Registered</span>
+      <h2>{{ visitors.length }}</h2>
+      <p>All visitor records</p>
+    </article>
+
+    <article class="report-card">
+      <span>Today's Visits</span>
+      <h2>{{ todayVisitors }}</h2>
+      <p>Records for today</p>
+    </article>
+
+    <article class="report-card">
+      <span>Pending Requests</span>
+      <h2>{{ pending }}</h2>
+      <p>Awaiting approval</p>
+    </article>
+
+    <article class="report-card">
+      <span>Approved Requests</span>
+      <h2>{{ approved }}</h2>
+      <p>Approved visitors</p>
+    </article>
+
+    <article class="report-card">
+      <span>Rejected Requests</span>
+      <h2>{{ rejected }}</h2>
+      <p>Rejected visitors</p>
+    </article>
+
+    <article class="report-card">
+      <span>Currently Inside</span>
+      <h2>{{ inside }}</h2>
+      <p>Not checked out yet</p>
+    </article>
+
+    <article class="report-card">
+      <span>Completed Visits</span>
+      <h2>{{ exited }}</h2>
+      <p>Visitors who checked out</p>
+    </article>
+
+  </div>
+
+  <div class="section-card">
+    <h2>Visitor Report</h2>
+    <p class="description">
+      Export the current records as a CSV file to open in Excel.
+    </p>
+
+    <button class="btn btn-primary" (click)="exportCsv()">
+      Download Visitor Report
+    </button>
+
+    <button class="btn btn-light" (click)="refresh()">
+      Refresh Report
+    </button>
+  </div>
+
+</section>

@@ -1,0 +1,168 @@
+:host {
+  display: block;
+}
+
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 27px;
+}
+
+.eyebrow {
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.page-heading h1 {
+  font-size: 29px;
+  margin: 8px 0;
+}
+
+.page-heading p,
+.section-title p {
+  font-size: 13px;
+  color: #8490a3;
+  margin: 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card,
+.section-card {
+  background: white;
+  border: 1px solid #e5eaf2;
+  border-radius: 14px;
+  padding: 23px;
+}
+
+.stat-card span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.stat-card h2 {
+  font-size: 32px;
+  margin: 15px 0 0;
+}
+
+.section-title {
+  margin-bottom: 20px;
+}
+
+.section-title h2 {
+  font-size: 18px;
+  margin: 0 0 7px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #edf0f5;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+th {
+  color: #8490a3;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
+.badge.inside {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.exited {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.badge.waiting {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.btn {
+  border: none;
+  border-radius: 7px;
+  padding: 9px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.btn-light {
+  background: #eaf1ff;
+  color: #2563eb;
+}
+
+.alert {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 15px;
+}
+
+.empty-state p {
+  color: #8490a3;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-card,
+  .stat-card {
+    padding: 16px;
+  }
+}

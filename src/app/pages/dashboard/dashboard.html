@@ -1,0 +1,126 @@
+<section class="page">
+
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">OVERVIEW</span>
+      <h1>Dashboard</h1>
+      <p>Monitor visitor activity in your apartment.</p>
+    </div>
+
+    <button class="btn btn-light" (click)="refresh()">
+      Refresh
+    </button>
+  </div>
+
+  <div class="stats-grid">
+
+    <article class="stat-card">
+      <span class="stat-label">Total Visitors</span>
+      <h2>{{ total }}</h2>
+      <p>Registered visitors</p>
+    </article>
+
+    <article class="stat-card">
+      <span class="stat-label">Pending Approval</span>
+      <h2>{{ pending }}</h2>
+      <p>Awaiting approval</p>
+    </article>
+
+    <article class="stat-card">
+      <span class="stat-label">Approved Visitors</span>
+      <h2>{{ approved }}</h2>
+      <p>Approved requests</p>
+    </article>
+
+    <article class="stat-card">
+      <span class="stat-label">Currently Inside</span>
+      <h2>{{ inside }}</h2>
+      <p>Visitors not checked out</p>
+    </article>
+
+  </div>
+
+  <div class="section-card">
+    <div class="section-title">
+      <div>
+        <h2>Recent Visitors</h2>
+        <p>The latest registered visitor records.</p>
+      </div>
+
+      <a routerLink="/visitor-list" class="text-link">
+        View all →
+      </a>
+    </div>
+
+    @if (recentVisitors.length === 0) {
+      <div class="empty-state">
+        <div class="empty-icon">♙</div>
+        <h3>No visitors yet</h3>
+        <p>Register your first visitor to see records here.</p>
+        <a routerLink="/register-visitor" class="btn btn-primary">
+          Register Visitor
+        </a>
+      </div>
+    } @else {
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Visitor</th>
+              <th>Apartment</th>
+              <th>Purpose</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (visitor of recentVisitors; track visitor.id) {
+              <tr>
+                <td>{{ visitor.name }}</td>
+                <td>{{ visitor.apartment }}</td>
+                <td>{{ visitor.purpose }}</td>
+                <td>{{ visitor.date }}</td>
+                <td>
+                  <span class="badge" [class]="visitor.status.toLowerCase()">
+                    {{ visitor.status }}
+                  </span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+
+  <div class="section-card">
+    <div class="section-title">
+      <div>
+        <h2>Quick Actions</h2>
+        <p>Open a visitor management feature.</p>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <a routerLink="/register-visitor" class="action-card">
+        <span class="action-icon">＋</span>
+        <strong>Register Visitor</strong>
+        <span>Add a new visitor</span>
+      </a>
+
+      <a routerLink="/visitor-list" class="action-card">
+        <span class="action-icon">♙</span>
+        <strong>Visitors List</strong>
+        <span>Manage visitor requests</span>
+      </a>
+
+      <a routerLink="/entry-exit" class="action-card">
+        <span class="action-icon">⇄</span>
+        <strong>Entry &amp; Exit</strong>
+        <span>Record check-in and checkout</span>
+      </a>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,100 @@
+<section class="page">
+
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">RECORD MANAGEMENT</span>
+      <h1>Visitors List</h1>
+      <p>View and manage registered visitor requests.</p>
+    </div>
+
+    <button class="btn btn-light" (click)="refresh()">Refresh</button>
+  </div>
+
+  <div class="section-card">
+
+    <div class="toolbar">
+      <input
+        type="search"
+        [(ngModel)]="searchTerm"
+        placeholder="Search name, phone or apartment...">
+
+      <select [(ngModel)]="selectedStatus">
+        <option>All</option>
+        <option>Pending</option>
+        <option>Approved</option>
+        <option>Rejected</option>
+      </select>
+    </div>
+
+    @if (message) {
+      <div class="alert success">{{ message }}</div>
+    }
+
+    <div class="results-count">
+      Showing {{ filteredVisitors.length }} visitor(s)
+    </div>
+
+    @if (filteredVisitors.length === 0) {
+      <div class="empty-state">
+        <h3>No visitors found</h3>
+        <p>Register a visitor or change your search filters.</p>
+      </div>
+    } @else {
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Visitor</th>
+              <th>Phone</th>
+              <th>Apartment</th>
+              <th>Purpose</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (visitor of filteredVisitors; track visitor.id) {
+              <tr>
+                <td>{{ visitor.name }}</td>
+                <td>{{ visitor.phone }}</td>
+                <td>{{ visitor.apartment }}</td>
+                <td>{{ visitor.purpose }}</td>
+                <td>{{ visitor.date }}</td>
+
+                <td>
+                  <span class="badge" [class]="visitor.status.toLowerCase()">
+                    {{ visitor.status }}
+                  </span>
+                </td>
+
+                <td>
+                  <div class="table-actions">
+                    @if (visitor.status !== 'Approved') {
+                      <button
+                        class="small-button approve"
+                        (click)="updateStatus(visitor, 'Approved')">
+                        Approve
+                      </button>
+                    }
+
+                    @if (visitor.status !== 'Rejected') {
+                      <button
+                        class="small-button reject"
+                        (click)="updateStatus(visitor, 'Rejected')">
+                        Reject
+                      </button>
+                    }
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+
+  </div>
+
+</section>

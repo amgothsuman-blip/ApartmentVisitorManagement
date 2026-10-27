@@ -1,0 +1,97 @@
+<section class="page">
+
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">SECURITY OPERATIONS</span>
+      <h1>Entry &amp; Exit</h1>
+      <p>Record the arrival and departure of approved visitors.</p>
+    </div>
+
+    <button class="btn btn-light" (click)="refresh()">Refresh</button>
+  </div>
+
+  @if (message) {
+    <div class="alert">{{ message }}</div>
+  }
+
+  <div class="stats-grid">
+    <article class="stat-card">
+      <span>Approved Visitors</span>
+      <h2>{{ approvedVisitors.length }}</h2>
+    </article>
+
+    <article class="stat-card">
+      <span>Currently Inside</span>
+      <h2>{{ insideVisitors.length }}</h2>
+    </article>
+  </div>
+
+  <div class="section-card">
+    <div class="section-title">
+      <div>
+        <h2>Visitor Entry &amp; Exit Records</h2>
+        <p>Only approved visitors can enter.</p>
+      </div>
+    </div>
+
+    @if (approvedVisitors.length === 0) {
+      <div class="empty-state">
+        <h3>No approved visitors</h3>
+        <p>Approve a visitor request before recording entry.</p>
+      </div>
+    } @else {
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Visitor</th>
+              <th>Apartment</th>
+              <th>Entry Time</th>
+              <th>Exit Time</th>
+              <th>Current Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (visitor of approvedVisitors; track visitor.id) {
+              <tr>
+                <td>{{ visitor.name }}</td>
+                <td>{{ visitor.apartment }}</td>
+                <td>{{ visitor.entryTime || 'Not entered' }}</td>
+                <td>{{ visitor.exitTime || 'Not exited' }}</td>
+
+                <td>
+                  @if (visitor.entryTime && !visitor.exitTime) {
+                    <span class="badge inside">Inside</span>
+                  } @else if (visitor.exitTime) {
+                    <span class="badge exited">Exited</span>
+                  } @else {
+                    <span class="badge waiting">Awaiting Entry</span>
+                  }
+                </td>
+
+                <td>
+                  @if (!visitor.entryTime || visitor.exitTime) {
+                    <button
+                      class="btn btn-primary"
+                      (click)="checkIn(visitor)">
+                      Check In
+                    </button>
+                  } @else {
+                    <button
+                      class="btn btn-danger"
+                      (click)="checkOut(visitor)">
+                      Check Out
+                    </button>
+                  }
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+
+</section>
